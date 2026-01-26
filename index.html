@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HGAL Academy: Population & Sample</title>
+    
+    <!-- Google Fonts: Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for subtle icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a4a4a; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666; 
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background: linear-gradient(180deg, #121212 0%, #1e1e24 100%);
+            color: #e0e0e0;
+            overflow-x: hidden;
+            line-height: 1.6; /* Adjusted line-height for larger font */
+        }
+
+        /* Scroll Progress Bar */
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 50;
+        }
+        #progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            width: 0%;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.7);
+        }
+
+        /* Typography Tweaks - Updated to 27px */
+        .lecture-text {
+            font-size: 27px; /* Explicitly set to 27px */
+        }
+        
+        /* Apply 27px to list items inside lecture text specifically if needed, 
+           though inheritance usually handles it. */
+        .lecture-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animation Classes */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Highlight Styles */
+        .highlight {
+            color: #60a5fa; /* Soft Blue */
+            font-weight: 700;
+        }
+        .term {
+            color: #fbbf24; /* Amber */
+            font-weight: 700;
+            border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        /* VIP Button Animation */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .vip-btn {
+            animation: pulse-glow 2s infinite;
+            font-size: 27px; /* Ensuring button text is also 27px */
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto px-6 pt-12">
+        
+        <!-- Header / Logo -->
+        <div class="flex justify-center mb-12 reveal-on-scroll">
+            <!-- Used max-w-full to ensure it fits screen, but kept the high quality source -->
+            <img src="https://i.imgur.com/eP0BFrd.png" alt="HGAL Academy Logo" class="w-full max-w-[500px] h-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+        </div>
+
+        <!-- Lecture Content Start -->
+        <article class="lecture-text space-y-12 text-gray-300">
+
+            <!-- Intro -->
+            <div class="reveal-on-scroll">
+                <p>Hello, and welcome to today's session! 🎓</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>I hope you are ready to learn. Today, we are going to dive into a fundamental concept in research methodology. We are going to break down exactly what we mean when we talk about <span class="term">Population</span> and <span class="term">Sample</span>. 🌍📊</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Let's start right at the beginning with some clear definitions.</p>
+            </div>
+
+            <!-- Definition Section -->
+            <div class="reveal-on-scroll">
+                <p><span class="highlight">What is a Population?</span> 🤔</p>
+                <p class="mt-4">In research, when we say <span class="term">Population</span>, we are referring to the total membership of a group, a universe, or objects in a specific state or geographical location. It is the big picture.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Think of it as the <strong>totality of the universe</strong> from which you could select subjects for a study. Perhaps most importantly, the population is the group to whom the results of your study would be <strong>generalized</strong>. 🌐</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Okay, let’s now move on to the second part of our duo...</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p><span class="highlight">What is a Sample?</span> 🧪</p>
+                <p class="mt-4">A <span class="term">Sample</span> consists of the subjects that you <em>actually</em> want to use in your study. It refers to that smaller section of the population which is selected and from whom data is actually collected.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Imagine you are cooking a huge pot of soup. The whole pot is the <strong>population</strong>. The spoonful you taste to check for salt? That is your <strong>sample</strong>. 🍲🥄</p>
+            </div>
+
+            <!-- Transition -->
+            <div class="reveal-on-scroll">
+                <p>Now that we understand this, let’s talk about the specific differences between them.</p>
+            </div>
+
+            <!-- Differences Section -->
+            <div class="reveal-on-scroll">
+                <p><span class="highlight">Differences between Population and Sample</span> ⚖️</p>
+                <p class="mt-4">While the population is about the <strong>generality</strong> of the universe or groups of people, the sample refers to merely a <strong>fraction</strong> of persons from that population.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>It is from the sample that data is collected in the course of a study. And here is the key part: because that sample is <strong>representative</strong> of the population, the results can be generalized back to the population in a scientific study. 🔄</p>
+            </div>
+
+            <!-- Transition -->
+            <div class="reveal-on-scroll">
+                <p>Let’s now dive into <strong>how</strong> we actually pick these samples. 🧐</p>
+            </div>
+
+            <!-- Types of Sampling Intro -->
+            <div class="reveal-on-scroll">
+                <p><span class="highlight">Types of Sampling</span></p>
+                <p class="mt-4">The types of sampling—often called sampling procedures or methods—are broadly grouped into two main categories:</p>
+                <ul class="list-none mt-4 space-y-4 pl-4 border-l-4 border-blue-500">
+                    <li>1️⃣ Scientific or Probability Sampling</li>
+                    <li>2️⃣ Non-Scientific or Non-Probability Sampling</li>
+                </ul>
+            </div>
+
+            <!-- Transition -->
+            <div class="reveal-on-scroll">
+                <p>Next, we’ll look at the first category in detail.</p>
+            </div>
+
+            <!-- Scientific Sampling -->
+            <div class="reveal-on-scroll">
+                <p><span class="highlight">1. Scientific Sampling (Probability Sampling)</span> 🎲</p>
+                <p class="mt-4">This is any sampling method where <strong>every member</strong> of the population has a greater chance—and in some cases, an equal chance—of being selected as a sample.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Let's break down the different methods within this category:</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔹 <span class="term">Simple Random Sampling</span></p>
+                <p>In this method, every member or element of the population has an <strong>equal chance</strong> of being selected. It is the gold standard of fairness.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>The steps involve identifying each member of the population—for example, by listing them with a name or a number—and then selecting the sample through methods like a table of random numbers, the ballot method, or even the throw of a dice. 🎲</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔹 <span class="term">Systematic Random Sampling</span></p>
+                <p>Here, the researcher starts randomly. Having listed the population, they select the <strong>'nth'</strong> member until the sample size required is reached.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>How do we get the 'nth' number? A way of getting the interval is often by dividing the total population by the sample size required. ➗</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔹 <span class="term">Stratified Random Sampling</span></p>
+                <p>For this method, the researcher starts by subdividing the population into homogenous subgroups or <strong>strata</strong> (stratum is the singular). These groups share some known unifying qualities.</p>
+                <p class="mt-2">Then, the researcher draws a sample from each group using simple random or systematic sampling methods. 🍰</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔹 <span class="term">Cluster or Area Sampling</span></p>
+                <p>With cluster sampling, instead of drawing individual members, we select <strong>groups or clusters</strong>. The population is divided into clusters along geographical boundaries, and specific clusters are randomly selected.</p>
+                <p class="mt-2">Crucially, <strong>all</strong> the members of the selected clusters are studied. 🏙️</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔹 <span class="term">Table of Random Numbers</span></p>
+                <p>The researcher lists and numbers the members of the population serially. They then select the sample by picking numbers from a standard table of random numbers and including the members corresponding to those numbers. 🔢</p>
+            </div>
+
+            <!-- Transition -->
+            <div class="reveal-on-scroll">
+                <p>At this point, it’s important to consider the other side of the coin.</p>
+            </div>
+
+            <!-- Non-Scientific Sampling -->
+            <div class="reveal-on-scroll">
+                <p><span class="highlight">2. Non-Scientific Sampling (Non-Probability Sampling)</span> 🚫🎲</p>
+                <p class="mt-4">This is the method of sampling where every member of the population is <strong>not</strong> given a chance to be part of the sample. The choice usually depends entirely on the judgment of the researcher.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Here are the major types:</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔸 <span class="term">Convenience (Accidental) Sampling</span></p>
+                <p>The researcher primarily works with a group that is accessible and convenient. Because of this, the method is prone to <strong>bias</strong>. ⚠️ There is no evidence that the sample is truly representative of the population of interest.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔸 <span class="term">Purposive (Judgmental) Sampling</span></p>
+                <p>This is where the researcher uses personal decisions to determine the members of the population that suit the specific purposes or requirements of the study. It is subjective. 🧠</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>🔸 <span class="term">Quota (Proportional) Sampling</span></p>
+                <p>Here, the researcher tries to match the proportion of subgroups in the sample as closely as possible to show that every group is represented, but without the randomness of scientific sampling. 📊</p>
+            </div>
+
+            <!-- Transition -->
+            <div class="reveal-on-scroll">
+                <p>Okay, let's wrap this up by comparing the two major approaches.</p>
+            </div>
+
+            <!-- Conclusion/Differences -->
+            <div class="reveal-on-scroll">
+                <p><span class="highlight">Differences between Scientific and Non-Scientific Sampling</span> 🥊</p>
+                <p class="mt-4">The major difference lies in the <strong>representativeness</strong> and <strong>validity</strong> of results.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Scientific sampling methods offer every member of the population a chance to be part of the selected sample. In contrast, the non-probability method does not provide this for all members.</p>
+            </div>
+
+            <div class="reveal-on-scroll">
+                <p>Because of this, the non-scientific method is prone to <strong>contaminating variables</strong>, and the validity of research using them is often questioned. 📉</p>
+            </div>
+            
+            <div class="reveal-on-scroll">
+                <p>That brings us to the end of our lecture on Population and Sampling! I hope this concept is now crystal clear for you.</p>
+            </div>
+
+            <!-- VIP Section -->
+            <div class="mt-16 mb-24 pt-10 border-t border-gray-800 reveal-on-scroll text-center">
+                <div class="bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+                    <!-- Adjusted sizes to match 27px requirement -->
+                    <p class="text-[27px] font-bold mb-4 text-yellow-400">💎 Important Notice</p>
+                    <p class="mb-6 text-[27px] text-gray-300">
+                        Join the VIP if you're yet to, for more study materials and other bonuses (worth #115,000).
+                    </p>
+                    <p class="mb-6 text-[27px] text-gray-400">For more details click below 👇</p>
+                    
+                    <a href="https://tinyurl.com/2dbtvx2b" target="_blank" class="vip-btn inline-block bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold py-6 px-12 rounded-full mt-4 transition-transform transform hover:scale-105 active:scale-95 no-underline">
+                        Click Here 🚀
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </div>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + "%";
+        });
+
+        // Intersection Observer for Text Reveal Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: Stop observing once visible to keep it there
+                    // observer.unobserve(entry.target); 
+                } else {
+                    // Optional: Remove class to re-animate when scrolling up
+                    // entry.target.classList.remove('visible'); 
+                }
+            });
+        }, observerOptions);
+
+        // Select all text blocks and apply observer
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+  </html>
